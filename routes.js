@@ -13,6 +13,9 @@ routes.get('/instructors', function(req, res){
 routes.get('/members', function(req, res){
     return res.send("menbers")
 })
+routes.get('/instructors/create', function(req, res){
+    return res.render('instructors/create')
+})
 
 
 
