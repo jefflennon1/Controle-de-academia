@@ -1,0 +1,20 @@
+{
+  "instructors": [
+    {
+      "avatar_url": "http://google.com.br",
+      "name": "Jefferso Lennon",
+      "birth": "1993-01-01",
+      "gender": "M",
+      "services": "Musculação",
+      "created_at": 1593361812646
+    },
+    {
+      "avatar_url": "http://google.com",
+      "name": "Maluco no pedaço",
+      "birth": 946684800000,
+      "gender": "M",
+      "services": "Oloco bixo",
+      "created_at": 1593362013381
+    }
+  ]
+}
