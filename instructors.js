@@ -65,13 +65,15 @@ exports.post =  function(req, res){
 //edit
 exports.edit= function(req,res){
 
-    const { id } = req.params
+ const { id } = req.params
 
 
     const foundInstructor = data.instructors.find(function(instructor){
          return id == instructor.id
     })
-    if(!foundInstructor) return res.send("instructor not found")
+    if(!foundInstructor) return res.send("instructor not found")  
+
+
 
     // yyyy-mm-dd - o html espera receber
 
@@ -83,6 +85,31 @@ exports.edit= function(req,res){
         
 
     return res.render('instructors/edit', {instructor})
+}
+
+//put
+exports.put = function(req, res){
+
+    const { id } = req.body
+
+    const foundInstructor = data.instructors.find(function(instructor){
+         return id == instructor.id
+    })
+    if(!foundInstructor) return res.send("instructor not found")
+
+    const instructor = {
+        ...foundInstructor,
+        ...req.body,
+        birth: Date.parse(req.body.birth)
+    }
+
+    data.instructors[id - 1] = instructor
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
+        if(err) return res.send("write error")
+
+        return res.redirect(`/instructors/${id}`)
+    })
 }
 
 
